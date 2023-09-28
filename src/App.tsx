@@ -1,5 +1,11 @@
+import { QueryClientProvider, queryClient } from './core/configs/react-query'
+
 function App() {
-  return <div>Vite</div>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div>Vite</div>
+    </QueryClientProvider>
+  )
 }
 
 export default App

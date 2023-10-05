@@ -1,27 +1,37 @@
-# React + TypeScript + Vite
+# Desafio Cielo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Requisitos
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Nodejs v16.15.0 ou acima;
+- Pnpm package manager;
 
-## Expanding the ESLint configuration
+## Configuração do Back-end
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Esse backend foi desenvolvido para suportar o modulo de front
 
--   Configure the top-level `parserOptions` property like this:
+Durante a execução inicial o backend irá verificar os dados do `appsettings.json` e verificará se a propriedade `GenerateFakeData` for verdadeiro, caso seja a aplicação gerará 10.000 transações e as usará para retornar os dados, caso o valor seja falso ele irá carregar os dados do arquivo `data.json`.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+> Os dados não são persistidos, ao iniciar a aplicação caso GenerateFakeData for positivo novos dados serão gerados
 
--   Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
--   Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Para executar, além do código fonte também exisitirá 3 executáveis dentro de realises do repositório
+- window
+- macOS
+- linux
+
+Utilize os padrões do sistema operacional para executa-los e não se esqueça de dar permissão de execução, mesmo de desenvolvedores desconhecidos (estou olhando para você macOS)
+
+Também existe um Dockerfile disponivel
+
+> docker build . -t cielobackend
+
+> docker run cielobackend -p 5000:80
+
+
+## Configuração do Front
+
+- Clone o projeto;
+- Cria um arquivo .env na pasta raiz do seu projeto com o seguinte conteúdo: VITE_API='http://localhost:5000'
+- Instale as dependências necessárias executando o comando: "pnpm install".
+- Inicie o projeto, executando o comando "pnpm run dev". 
+- Digite "http://localhost:3000" na barra de endereço do seu navegador.

@@ -1,6 +1,6 @@
 import Layout from '@/layout'
-import DashboardPage from '@/pages/Dashboard'
-import RevenuePage from '@/pages/Revenue'
+import DashboardPage from '@/pages/DashboardPage'
+import RevenuePage from '@/pages/RevenuePage'
 import { IconChartAreaLine, IconCoin } from '@tabler/icons-react'
 import { RouteObjectPermission } from 'rouper-navigation'
 import { FeedbackError } from '../components'
